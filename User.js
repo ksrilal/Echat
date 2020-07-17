@@ -4,7 +4,7 @@ const User = {
     phone: null,
     name: null,
     confirm: false,
-    users: [],
+    status: '',
 }
 
 

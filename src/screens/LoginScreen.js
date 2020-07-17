@@ -23,6 +23,7 @@ async function submit(){
      else{
         User.phone = phone;
         User.name = name;
+        User.status = '',
         // await AsyncStorage.setItem('userphone', phone);
         navigation.navigate("Verify");
         //alert(User.name);
@@ -32,7 +33,7 @@ async function submit(){
         return(
             <View style={styles.container}>
                 <TextInput
-                    placeholder="Phone Number"
+                    placeholder="Phone Number. ex: +92711697614"
                     keyboardType='number-pad'
                     style={styles.input}
                     value={phone}

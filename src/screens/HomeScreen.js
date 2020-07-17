@@ -1,11 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import {Text, View, StyleSheet, ActivityIndicator, FlatList, TouchableOpacity} from 'react-native';
+import {Text, View, StyleSheet, ActivityIndicator, FlatList, TouchableOpacity, Button} from 'react-native';
 import User from '../../User';
 import {auth, firebase, database, firestore} from '../../Setup';
-
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 
 const HomeScreen = ({navigation}) => {
+
+    React.useLayoutEffect(() => {
+        navigation.setOptions({
+            title: 'Contacts',
+            headerStyle: {
+                backgroundColor: '#8A2BE2',
+              },
+              headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontWeight: 'bold',
+              },
+            headerLeft: null,
+            headerRight: () => (
+            <TouchableOpacity style={{paddingRight: 10}} onPress={() => navigation.navigate("Profile")}>
+                <Icon name="user" size={35} color="#fff" />
+            </TouchableOpacity>
+            ),
+        });
+      }, [navigation]);
 
     const [loading, setLoading] = useState(true); // Set loading to true on component mount
     const [users, setUsers] = useState([]); // Initial empty array of users
@@ -45,7 +64,8 @@ const HomeScreen = ({navigation}) => {
                 renderItem={({ item }) => (
                     <View style={styles.list}>
                         <TouchableOpacity onPress={() => navigation.navigate('Chat', item)}>
-                            <Text style={styles.listTxt}>{item.name}</Text>
+                            <Text style={styles.listTxt}><Icon name="smile" size={35} color="#6495ED" />  {item.name} ({item.key})</Text>
+                            <Text style={styles.statusTxt} >{item.status}</Text>
                         </TouchableOpacity>
                     </View>
                 )}
@@ -57,14 +77,25 @@ const HomeScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
     list:{
-        padding: 10,
+        paddingRight: 10,
+        paddingLeft: 10,
+        paddingBottom: 5,
+        paddingTop: 10,
         borderBottomColor: '#6495ED',
         borderBottomWidth: 1,
-
+        backgroundColor: '#E0FFFF',
     },
     listTxt: {
-        fontSize: 20,
-
+        flexDirection: 'row',
+        fontSize: 28,
+        color: '#6495ED',
+    },
+    statusTxt: {
+        textAlign: 'right',
+        color: '#8A2BE2',
+        paddingRight: 10,
+        borderRadius: 5,
+        fontSize: 16,
     },
 });
 

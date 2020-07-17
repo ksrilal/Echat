@@ -6,6 +6,25 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 
     const ChatScreen = ({route, navigation}) => {
 
+        React.useLayoutEffect(() => {
+            navigation.setOptions({
+                headerStyle: {
+                    backgroundColor: '#8A2BE2',
+                  },
+                  headerTintColor: '#fff',
+                  headerTitleStyle: {
+                    fontWeight: 'bold',
+                  },
+                headerRight: () => (
+                <TouchableOpacity style={{paddingRight: 10}} onPress={() => navigation.navigate("Profile")}>
+                    <Icon name="user" size={35} color="#fff" />
+                </TouchableOpacity>
+                ),
+            });
+          }, [navigation]);
+
+
+
         const [message, setMessage] = useState('');
 
         const {name} = route.params;
@@ -18,7 +37,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
                                 .collection('messages')
                                 .doc(phone)
                                 .collection(User.phone)
-                                .orderBy('time')
+                                .orderBy('createdAt')
                                 .onSnapshot(querySnapshot => {
                                     const text = []; 
           
@@ -43,8 +62,9 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 
             if(message.length > 0){
 
-                const time = firestore.Timestamp.now();
-                console.log('time' + time);
+                const time = firebase.firestore.FieldValue.serverTimestamp();
+                //const t = new Date(createdAt);
+                console.log('time ' + time);
 
                 firestore()
                 .collection('messages')
@@ -52,7 +72,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
                 .collection(User.phone)
                 .add({
                     message,
-                    time: time,
+                    createdAt: time,
                     from: User.phone,
                     to: phone
                 });
@@ -63,7 +83,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
                 .collection(phone)
                 .add({
                     message,
-                    time: time,
+                    createdAt: time,
                     from: User.phone,
                     to: phone
                 });
@@ -85,15 +105,15 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
                                 flexDirection: 'row',
                                 width: '60%',
                                 alignSelf: item.from===User.phone ? 'flex-end' : 'flex-start',
-                                backgroundColor: item.from===User.phone ? '#6A5ACD' : '#1E90FF',
+                                backgroundColor: item.from===User.phone ? '#008080' : '#40E0D0',
                                 borderRadius: 5,
                                 marginBottom: 10,
                             }}>
-                                <Text style={{color: '#fff', padding: 7, fontSize: 16}}>
+                                <Text style={{color: '#fff', padding: 7, fontSize: 22}}>
                                     {item.message}
                                 </Text>
-                                <Text style={{color: '#eee', padding: 3, fontSize: 10}}>
-                                    {item.from}
+                                <Text style={{color: '#eee', padding: 3, fontSize: 14}}>
+                                   {item.from}
                                 </Text>
                             </View>
                         )}

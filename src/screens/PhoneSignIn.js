@@ -26,6 +26,7 @@ const PhoneSignIn = ({navigation}) => {
       .set({
         phone: User.phone,
         name: User.name,
+        status: User.status,
       })
       .then(() => {
       console.log('User added!');
@@ -47,7 +48,7 @@ const PhoneSignIn = ({navigation}) => {
       <View style={styles.container}>
         <Button
           title="Get verify code"
-          color='#008B8B'
+          color='#8A2BE2'
           onPress={() => signInWithPhoneNumber(User.phone)}
         />
       </View>
@@ -62,7 +63,7 @@ const PhoneSignIn = ({navigation}) => {
               value={code} style={styles.input}
               onChangeText={text => setCode(text)}
             />
-            <Button title="Confirm Code" onPress={() => confirmCode()} />
+            <Button title="Confirm Code" color='#8A2BE2' onPress={() => confirmCode()} />
         </View>
     );
 };
