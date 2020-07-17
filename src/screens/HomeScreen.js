@@ -15,7 +15,7 @@ const HomeScreen = ({navigation}) => {
                             .collection('users')
                             .onSnapshot(querySnapshot => {
                                 const users = [];
-      
+       
                                 querySnapshot.forEach(documentSnapshot => {
                                     if(documentSnapshot.id!=User.phone){
                                         users.push({
@@ -43,13 +43,13 @@ const HomeScreen = ({navigation}) => {
             <FlatList
                 data={users}
                 renderItem={({ item }) => (
-                <View style={styles.list}>
-                    <TouchableOpacity onPress={() => navigation.navigate('Chat', item)}>
-                        <Text style={styles.listTxt}>{item.name}</Text>
-                    </TouchableOpacity>
-                </View>
-      )}
-    />      
+                    <View style={styles.list}>
+                        <TouchableOpacity onPress={() => navigation.navigate('Chat', item)}>
+                            <Text style={styles.listTxt}>{item.name}</Text>
+                        </TouchableOpacity>
+                    </View>
+                )}
+            />      
         );
 };
 

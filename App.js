@@ -19,6 +19,7 @@ const App = () => {
                   <Stack.Screen name="Login" component={LoginScreen} />
                   <Stack.Screen name="Verify" component={PhoneSignIn} />
                   <Stack.Screen name="Home" component={HomeScreen} Options={{ headerLeft: null }} />
+                  <Stack.Screen name="Chat" component={ChatScreen} options={({ route }) => ({ title: route.params.name })} />
               </Stack.Navigator>
           </NavigationContainer>
     );
@@ -30,9 +31,9 @@ const App = () => {
               <Stack.Screen name="Chat" component={ChatScreen} options={({ route }) => ({ title: route.params.name })} />
           </Stack.Navigator>
       </NavigationContainer>
-);
+); 
   }
-};
+}; 
 
 export default App;
  
