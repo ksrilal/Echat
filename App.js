@@ -25,7 +25,7 @@ const App = () => {
                                     fontWeight: 'bold',
                                   }
                                 }}>
-                  <Stack.Screen name="Login" component={LoginScreen} options={{title: 'Join'}}/>
+                  <Stack.Screen name="Login" component={LoginScreen} options={{title: 'EChat'}}/>
                   <Stack.Screen name="Verify" component={PhoneSignIn} />
                   <Stack.Screen name="Home" component={HomeScreen} />
                   <Stack.Screen name="Profile" component={ProfileScreen} />

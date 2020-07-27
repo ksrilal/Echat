@@ -5,17 +5,18 @@ import User from '../../User';
 
 const LoginScreen = ({navigation}) => {
 
-    const [phone, setPhone] = React.useState('');
     const [name, setName] = React.useState('');
-
+    const [phone, setPhone] = React.useState('');
 
 async function submit(){
-     if(phone.length < 10){
-        Alert.alert('Error', 'Wrong Phone Number!');
+     if(phone.length != 12){
+        Alert.alert('Error', 'Invalid Phone Number!');
      }
      else if(phone.length == 0){
         Alert.alert('Error', 'Phone Number Required!');
-
+     }
+     else if(phone.indexOf('+94',0) != 0) {
+        Alert.alert('Error', 'Phone number first three digits must be +94');
      }
      else if(name.length < 1){
         Alert.alert('Error', 'Name Required!');
@@ -33,14 +34,14 @@ async function submit(){
         return(
             <View style={styles.container}>
                 <TextInput
-                    placeholder="Phone Number. ex: +92711697614"
+                    placeholder="Phone Number: ex.+94711697614"
                     keyboardType='number-pad'
                     style={styles.input}
                     value={phone}
                     onChangeText={setPhone}
                 />
                 <TextInput
-                    placeholder="Name"
+                    placeholder="Name: ex. Isuru"
                     style={styles.input}
                     value={name}
                     onChangeText={setName}

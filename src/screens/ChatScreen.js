@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, SafeAreaView, TextInput, TouchableOpacity, Dime
 import {auth, firebase, database, firestore} from '../../Setup';
 import User from '../../User';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import moment from 'moment';
 
     const ChatScreen = ({route, navigation}) => {
 
@@ -48,13 +49,15 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
                                             });
                                         
                                     });
-          
+                                    // console.log('xxxxxxxxxxxx');
+                                    // //console.log( moment(chat[1].createdAt - 23400000 ).toDate()); 
+                                    // console.log(text[0].createdAt); 
                                     setChat(text);
-                                    //console.log(text); 
-                                }); 
+                                    console.log('huththo meka '+text); 
+                                });  
           
             // Unsubscribe from events when no longer in use
-            return () => subscriber();
+            return () => subscriber(); 
           }, []);
 
         async function submit() {
@@ -62,15 +65,16 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 
             if(message.length > 0){
 
-                const time = firebase.firestore.FieldValue.serverTimestamp();
-                //const t = new Date(createdAt);
+                const time = Date.now();
+                //const t = new Date();
+                //const time = t.valueOf();
                 console.log('time ' + time);
 
                 firestore()
                 .collection('messages')
                 .doc(phone)
                 .collection(User.phone)
-                .add({
+                .add({ 
                     message,
                     createdAt: time,
                     from: User.phone,
@@ -94,6 +98,8 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
         }
 
 
+        const x = 'dcdcdcd';
+
         return(
             <View style={styles.container}>
 
@@ -113,9 +119,9 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
                                     {item.message}
                                 </Text>
                                 <Text style={{color: '#eee', padding: 3, fontSize: 14}}>
-                                   {item.from}
+                                    {moment(item.createdAt).format('h:mm a, YYYY/MM/DD')}
                                 </Text>
-                            </View>
+                            </View> 
                         )}
                     /> 
                 </View>
@@ -126,7 +132,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
                         placeholder="Type Message here..."
                         value={message}
                         onChangeText={setMessage}
-                    />
+                    /> 
 
                     <TouchableOpacity onPress={submit}>
                         <Text style={styles.btnText}>

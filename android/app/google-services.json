@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "782710091116",
+    "firebase_url": "https://echat-a1869.firebaseio.com",
+    "project_id": "echat-a1869",
+    "storage_bucket": "echat-a1869.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:782710091116:android:872d165df2b7717c519749",
+        "android_client_info": {
+          "package_name": "com.e_chats"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "782710091116-s84cb9m0k1vorro5v75li0da7fcv5cqu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKThCS5kwKoNJAQdskko_C6SRCyHuDG4E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "782710091116-s84cb9m0k1vorro5v75li0da7fcv5cqu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
