@@ -9,7 +9,7 @@ const HomeScreen = ({navigation}) => {
 
     React.useLayoutEffect(() => {
         navigation.setOptions({
-            title: 'Contacts',
+            title: 'EChat',
             headerStyle: {
                 backgroundColor: '#8A2BE2',
               },
@@ -64,7 +64,7 @@ const HomeScreen = ({navigation}) => {
                 renderItem={({ item }) => (
                     <View style={styles.list}>
                         <TouchableOpacity onPress={() => navigation.navigate('Chat', item)}>
-                            <Text style={styles.listTxt}><Icon name="smile" size={35} color="#6495ED" />  {item.name} ({item.key})</Text>
+                            <Text style={styles.listTxt}><Icon name="comments" size={35} color="#6495ED" />  {item.name} ({item.key})</Text>
                             <Text style={styles.statusTxt} >{item.status}</Text>
                         </TouchableOpacity>
                     </View>
@@ -83,11 +83,11 @@ const styles = StyleSheet.create({
         paddingTop: 10,
         borderBottomColor: '#6495ED',
         borderBottomWidth: 1,
-        backgroundColor: '#E0FFFF',
+        backgroundColor: '#fff',
     },
     listTxt: {
         flexDirection: 'row',
-        fontSize: 28,
+        fontSize: 22,
         color: '#6495ED',
     },
     statusTxt: {

@@ -24,7 +24,7 @@ async function submit(){
      else{
         User.phone = phone;
         User.name = name;
-        User.status = '',
+        User.status = 'Hey there! I am using Echat.',
         // await AsyncStorage.setItem('userphone', phone);
         navigation.navigate("Verify");
         //alert(User.name);

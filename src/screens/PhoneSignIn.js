@@ -26,7 +26,7 @@ const PhoneSignIn = ({navigation}) => {
       .set({
         phone: User.phone,
         name: User.name,
-        status: User.status,
+        status: "Hey there! I am using Echat.",
       })
       .then(() => {
       console.log('User added!');
