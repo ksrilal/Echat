@@ -80,6 +80,8 @@ const ProfileScreen = ({navigation}) => {
                 <View style={styles.container_edit}>
                     <Text style={styles.btnText}>Status</Text>
                     <TextInput
+                        multiline={true}
+                        numberOfLines={2}
                         placeholder={User.status}
                         style={styles.input}
                         value={status}
