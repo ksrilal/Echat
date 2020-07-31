@@ -35,6 +35,7 @@ const PhoneSignIn = ({navigation}) => {
       // firebase.database().ref('users/'+ User.phone).set({name: User.name})
       // .then(() => console.log('Data set.'));
       User.confirm = true;
+
       console.log(User.confirm);
       navigation.navigate("Home");
     } catch (error) {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Text, View, StyleSheet, ActivityIndicator, FlatList, TouchableOpacity, Button} from 'react-native';
+import {Text, View, StyleSheet, ActivityIndicator, FlatList, TouchableOpacity } from 'react-native';
 import User from '../../User';
 import {auth, firebase, database, firestore} from '../../Setup';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -8,6 +8,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 const HomeScreen = ({navigation}) => {
 
     React.useLayoutEffect(() => {
+
         navigation.setOptions({
             title: 'EChat',
             headerStyle: {

@@ -7,6 +7,7 @@ import moment from 'moment';
 
     const ChatScreen = ({route, navigation}) => {
 
+
         React.useLayoutEffect(() => {
             navigation.setOptions({
                 headerStyle: {

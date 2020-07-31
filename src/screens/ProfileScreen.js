@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, TouchableOpacity, TextInput, StyleSheet, Text } from 'react-native';
 import {auth, firebase, database, firestore} from '../../Setup';
 import User from '../../User';
@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 
 
 const ProfileScreen = ({navigation}) => {
+
 
     const [status, setStatus] = React.useState('');
     const [name, setName] = React.useState('');
