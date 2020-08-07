@@ -93,21 +93,32 @@ const ProfileScreen = ({navigation}) => {
                     </TouchableOpacity> 
                 </View>
             </View>
+            <View style={styles.footer}>
+                <Text>Name: R.K.K. Srilal</Text>
+                <Text>Index No: 17001706</Text>
+            </View>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
+    footer: {
+        flex: 1,
+        alignSelf: 'stretch',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#F0F8FF',
+    },
     container: {
         flex: 1,
     },
     container_avatar: {
-        flex: 1,
+        flex: 4,
         justifyContent: 'center',
         alignItems: 'center',
     },
     container_detail: {
-        flex: 1,
+        flex: 4,
         justifyContent: 'center',
         alignItems: 'center',
     },

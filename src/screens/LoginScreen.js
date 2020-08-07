@@ -32,31 +32,45 @@ async function submit(){
 }
 
         return(
-            <View style={styles.container}>
-                <TextInput
-                    placeholder="Phone Number: ex.+94711697614"
-                    keyboardType='number-pad'
-                    style={styles.input}
-                    value={phone}
-                    onChangeText={setPhone}
-                />
-                <TextInput
-                    placeholder="Name: ex. Isuru"
-                    style={styles.input}
-                    value={name}
-                    onChangeText={setName}
-                />
+            <>
+                    <View style={styles.container}>
+                        <TextInput
+                            placeholder="Phone Number: ex.+94711697614"
+                            keyboardType='number-pad'
+                            style={styles.input}
+                            value={phone}
+                            onChangeText={setPhone}
+                        />
+                        <TextInput
+                            placeholder="Name: ex. Isuru"
+                            style={styles.input}
+                            value={name}
+                            onChangeText={setName}
+                        />
 
-                <TouchableOpacity onPress={submit} >
-                    <Text style={styles.btnText}>ENTER</Text>
-                </TouchableOpacity>   
-            </View>
+                        <TouchableOpacity onPress={submit} >
+                            <Text style={styles.btnText}>ENTER</Text>
+                        </TouchableOpacity>   
+                    </View>
+                    <View style={styles.footer}>
+                        <Text>Name: R.K.K. Srilal</Text>
+                        <Text>Index No: 17001706</Text>
+                    </View>
+            </>        
         );
 };
 
 const styles = StyleSheet.create({
-    container: {
+    footer: {
         flex: 1,
+        alignSelf: 'stretch',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#F0F8FF',
+    },
+    container: {
+        flex: 5,
+        alignSelf: 'stretch',
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#F0F8FF',

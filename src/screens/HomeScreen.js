@@ -60,23 +60,41 @@ const HomeScreen = ({navigation}) => {
     }
 
         return(
-            <FlatList
-                data={users}
-                renderItem={({ item }) => (
-                    <View style={styles.list}>
-                        <TouchableOpacity onPress={() => navigation.navigate('Chat', item)}>
-                            <Text style={styles.listTxt}><Icon name="comments" size={35} color="#6495ED" />  {item.name} ({item.key})</Text>
-                            <Text style={styles.statusTxt} >{item.status}</Text>
-                        </TouchableOpacity>
-                    </View>
-                )}
-            />      
+            <>
+                <View style={styles.container} >
+                    <FlatList
+                    data={users}
+                    renderItem={({ item }) => (
+                        <View style={styles.list}>
+                            <TouchableOpacity onPress={() => navigation.navigate('Chat', item)}>
+                                <Text style={styles.listTxt}><Icon name="comments" size={35} color="#6495ED" />  {item.name} ({item.key})</Text>
+                                <Text style={styles.statusTxt} >{item.status}</Text>
+                            </TouchableOpacity>
+                        </View>
+                    )}
+                /> 
+                </View>
+                <View style={styles.footer}>
+                    <Text>Name: R.K.K. Srilal</Text>
+                    <Text>Index No: 17001706</Text>
+                </View>
+            </>
         );
 };
 
 
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 9,
+    },
+    footer: {
+        flex: 1,
+        alignSelf: 'stretch',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#F0F8FF',
+    },
     list:{
         paddingRight: 10,
         paddingLeft: 10,
