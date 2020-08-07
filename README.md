@@ -7,7 +7,7 @@ React-native, Firebase chat app.
         compileSdkVersion = 29
         targetSdkVersion = 29
         
-apk download here...  [Link](Echat.apk)
+apk download here...  [Link](https://github.com/ksrilal/Echat/blob/master/Echat.apk)
 
 When apk file is installed  in phone that is sdk version above 16(Jelly Bean), it can be seen in phone as other apps.
 After opening app, login page show up.
